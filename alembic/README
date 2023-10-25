@@ -1,0 +1,7 @@
+Generic single-database configuration.
+
+
+docker-compose run plotter-rest_api alembic revision --autogenerate -m "geography table"
+
+
+docker-compose run plotter-rest_api alembic upgrade head

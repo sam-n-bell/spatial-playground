@@ -1,0 +1,30 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+uvicorn = {extras = ["standard"], version = "*"}
+psycopg2-binary = "*"
+alembic = "==1.12.0" # ==1.12.0
+sqlalchemy = "==2.0.*"
+fastapi = "==0.104.0"
+python-dotenv = "*"
+structlog = "*"
+pytest = "*"
+httpx = "*"
+shapely = "==2.0.*"
+geoalchemy2 = "==0.14.*"
+
+[dev-packages]
+black = "*"
+isort = "*"
+flake8 = "*"
+
+[requires]
+python_version = "3.10"
+
+[scripts]
+format = "black ."
+sort = "isort --profile black ."
+lint = "flake8 ."
