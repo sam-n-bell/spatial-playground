@@ -10,3 +10,6 @@ PG_DB = os.getenv("POSTGRES_DB")
 PG_USER = os.getenv("POSTGRES_USER")
 PG_PWD = os.getenv("POSTGRES_PASSWORD")
 PG_PORT = os.getenv("POSTGRES_PORT")
+
+OAUTH_CLIENT_ID = os.getenv("OAUTH_CLIENT_ID")
+OAUTH_CLIENT_SECRET = os.getenv("OAUTH_CLIENT_SECRET")
