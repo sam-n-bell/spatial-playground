@@ -15,6 +15,7 @@ pytest = "*"
 httpx = "*"
 shapely = "==2.0.*"
 geoalchemy2 = "==0.14.*"
+cachetools = "*"
 
 [dev-packages]
 black = "*"

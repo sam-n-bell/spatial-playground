@@ -1,5 +1,5 @@
 import httpx
-
+from fastapi import Request, HTTPException
 from settings import OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET
 
 headers = {
@@ -7,10 +7,21 @@ headers = {
 }
 
 
+async def validate_bearer(request: Request):
+    # APIKeyHeader should be requiring this header to be present to reach this func
+    auth = request.headers["authorization"]
+    user = await get_github_user(auth)
+    return user
+
+
 async def get_github_user(access_token: str):
     async with httpx.AsyncClient() as client:
         headers.update({"Authorization": f'Bearer {access_token}'})
         response = await client.get(url=f'https://api.github.com/user', headers=headers)
+        if response.status_code > 400:
+            raise HTTPException(status_code=401, detail="Not authorized")
+        if response.status_code != 200:
+            raise Exception()
     return response.json()
 
 

@@ -34,4 +34,12 @@ class CustomGeography(TimeStampMixin, PG_BASE):
     srid: Mapped["SpatialRefSys"] = relationship(back_populates="custom_geography")
 
 
+class User(TimeStampMixin, PG_BASE):
+    __tablename__ = "user"
+
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4())
+    oauth_id: Mapped[str] = mapped_column(nullable=False)
+    meta: Mapped[dict] = mapped_column(type_=JSONB, default=None)
+
+
 

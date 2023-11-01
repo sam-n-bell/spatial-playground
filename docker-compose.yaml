@@ -1,5 +1,11 @@
 version: '3.7'
 services:
+#    redis:
+#      image: redis:7.0-alpine
+#      restart: always
+#      ports:
+#        - '6379:6379'
+#        -
     postgres:
         image: postgis/postgis:14-3.4
         restart: always
